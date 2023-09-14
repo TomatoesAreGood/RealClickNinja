@@ -7,8 +7,8 @@ public class Spawner : MonoBehaviour
 {
     public static Spawner instance;
     public bool DoPersist = true;
-    public GameObject applePrefab;
-
+    public GameObject ObjectPrefab;
+    
     public static List<Throwable> fruits;
 
     protected virtual void Awake(){
@@ -31,13 +31,11 @@ public class Spawner : MonoBehaviour
         }
     }
 
-    public void DestroyedFruit(){
-        
-    }
+  
 
     public void SpawnFruit(){
-        float num = UnityEngine.Random.Range(-4,5);
-        Instantiate(applePrefab).transform.position = new Vector3(num,-5f,0f);
+        float randNumX = UnityEngine.Random.Range(-10,11);
+        Instantiate(ObjectPrefab).transform.position = new Vector3(randNumX,-5f,0f);
     }
 
 

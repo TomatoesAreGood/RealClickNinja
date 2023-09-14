@@ -1,23 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.UI;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    //score
-    //timer
-    //spawner
+    public static int score;
+        //timer
+    public Spawner spawner;
 
 
     // Start is called before the first frame update
-    void Start()
-    {
-        
+    void Awake(){
+        score = 0;
+       
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        // Debug.Log(score);
     }
 }
