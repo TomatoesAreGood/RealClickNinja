@@ -25,7 +25,17 @@ public class Spawner : MonoBehaviour
     }
 
     void Update()
-    {
+    {   
+        if(GameManager.score < 0){
+            foreach(Throwable obj in fruits){
+                obj.gameObject.SetActive(false);
+                Destroy(obj.gameObject);
+            }
+            gameObject.SetActive(false);
+            Destroy(gameObject);
+            Destroy(this);
+        }
+
         if (fruits.Count < 1){
             SpawnFruit();
         }

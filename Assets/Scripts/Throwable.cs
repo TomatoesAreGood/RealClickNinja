@@ -15,11 +15,11 @@ using UnityEngine.Rendering;
 using UnityEngine.UIElements;
 
 public class Throwable : MonoBehaviour{
-
-    public Boolean isBomb;
-    public float spinSpeed;
     private Rigidbody2D rb;
     private SpriteRenderer spriteRenderer;
+    private float thrust = 500f;
+    private Boolean isBomb;
+    public float spinSpeed;
     public Sprite peach;
     public Sprite bomb;
     public Sprite apple;
@@ -27,13 +27,13 @@ public class Throwable : MonoBehaviour{
     public Sprite banana;
     public Sprite strawberry;
     public Sprite kiwi;
-    private float thrust;
+    public Sprite tomato;
 
     public void Awake(){
         rb = this.GetComponent<Rigidbody2D>();
         spriteRenderer = this.GetComponent<SpriteRenderer>();
 
-        int randint = UnityEngine.Random.Range(0,7);
+        int randint = UnityEngine.Random.Range(0,8);
         if (randint > 0){
             isBomb = false;
         }else{
@@ -54,10 +54,9 @@ public class Throwable : MonoBehaviour{
             spriteRenderer.sprite = kiwi;
         }else if(randint == 6){
             spriteRenderer.sprite = peach;
+        }else if(randint == 7){
+            spriteRenderer.sprite = tomato;
         }
-
-
-        thrust = 500.0f;
     }
 
     private void Start(){
@@ -87,22 +86,22 @@ public class Throwable : MonoBehaviour{
         return transform.position.y < -6.5;
     }
     
-    private void Update(){
+    private void Spin(){
         float angle = transform.localRotation.eulerAngles.z;
         transform.localRotation = Quaternion.Euler(0f, 0f, angle + spinSpeed* Time.deltaTime);
-       
+    }
 
+    private void Update(){
+       Spin();
+       
         if (hitGround()){
             if (!isBomb){
                 GameManager.score--;
             }
             Destroy(gameObject);
         }
-
-
     }
 
-   
 
     private void Toss(){
         Boolean exludeLeft = false;
@@ -110,10 +109,10 @@ public class Throwable : MonoBehaviour{
         int max = 6;
         int min = -5;
 
-        if (this.transform.position.x <= -7){
+        if (this.transform.position.x <= -6){
             exludeLeft = true;
         }
-        if (this.transform.position.x >= 7){
+        if (this.transform.position.x >= 6){
             exludeRight = true;
         }
 
