@@ -33,7 +33,6 @@ public class Spawner : MonoBehaviour
             }
             gameObject.SetActive(false);
             Destroy(gameObject);
-            Destroy(this);
         }
 
         if (fruits.Count < 1){

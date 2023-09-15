@@ -7,6 +7,8 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public static int score;
+
+    public IntToText scoreobj;
         //timer
     public Spawner spawner;
 
@@ -20,7 +22,8 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(score);
+        scoreobj.UpdateText(score);
+
         if (score < 0){
             SceneManager.LoadScene("GameOver");
         }

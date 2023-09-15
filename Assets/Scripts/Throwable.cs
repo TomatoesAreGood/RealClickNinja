@@ -30,8 +30,8 @@ public class Throwable : MonoBehaviour{
     public Sprite tomato;
 
     public void Awake(){
-        rb = this.GetComponent<Rigidbody2D>();
-        spriteRenderer = this.GetComponent<SpriteRenderer>();
+        rb = GetComponent<Rigidbody2D>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
 
         int randint = UnityEngine.Random.Range(0,8);
         if (randint > 0){
@@ -39,7 +39,7 @@ public class Throwable : MonoBehaviour{
         }else{
             isBomb = true;
         }
-
+        
         if (randint == 0){
             spriteRenderer.sprite = bomb;
         }else if(randint == 1){
@@ -71,7 +71,6 @@ public class Throwable : MonoBehaviour{
         Spawner.fruits.Remove(this);
     }
 
-
     private void OnMouseDown(){
         if (!isBomb){
             GameManager.score++;
@@ -81,7 +80,6 @@ public class Throwable : MonoBehaviour{
         Destroy(gameObject);
     }
     
-
     private Boolean hitGround(){
         return transform.position.y < -6.5;
     }
@@ -93,15 +91,10 @@ public class Throwable : MonoBehaviour{
 
     private void Update(){
        Spin();
-       
         if (hitGround()){
-            if (!isBomb){
-                GameManager.score--;
-            }
             Destroy(gameObject);
         }
     }
-
 
     private void Toss(){
         Boolean exludeLeft = false;

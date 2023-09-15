@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 6534986482733849913}
   - component: {fileID: 6534986482733849918}
-  - component: {fileID: 6534986482733849919}
   - component: {fileID: 6534986482733849916}
   - component: {fileID: 6534986482733849906}
+  - component: {fileID: 1689256687180310188}
   m_Layer: 0
   m_Name: ThrowableObj
   m_TagString: Untagged
@@ -87,22 +87,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!58 &6534986482733849919
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6534986482733849907}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 0.15499999
 --- !u!50 &6534986482733849916
 Rigidbody2D:
   serializedVersion: 4
@@ -136,13 +120,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 484c0c0fd5b5667428de197c51f78d55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isBomb: 0
   spinSpeed: 360
   peach: {fileID: -1309725853, guid: e603326ddb6d63244be2d205ed3f0bc1, type: 3}
-  bomb: {fileID: 804891344, guid: e603326ddb6d63244be2d205ed3f0bc1, type: 3}
+  bomb: {fileID: 1987382165, guid: d60f65e3430187b44b0634f0c9055299, type: 3}
   apple: {fileID: 62768417, guid: e603326ddb6d63244be2d205ed3f0bc1, type: 3}
   grape: {fileID: 1554901213, guid: e603326ddb6d63244be2d205ed3f0bc1, type: 3}
   banana: {fileID: -879936639, guid: e603326ddb6d63244be2d205ed3f0bc1, type: 3}
   strawberry: {fileID: -1260757649, guid: e603326ddb6d63244be2d205ed3f0bc1, type: 3}
   kiwi: {fileID: -1873485664, guid: e603326ddb6d63244be2d205ed3f0bc1, type: 3}
   tomato: {fileID: 523922682, guid: e603326ddb6d63244be2d205ed3f0bc1, type: 3}
+--- !u!58 &1689256687180310188
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6534986482733849907}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.15499999
