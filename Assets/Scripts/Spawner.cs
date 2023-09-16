@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 public class Spawner : MonoBehaviour 
 {
@@ -10,7 +12,7 @@ public class Spawner : MonoBehaviour
     public GameObject ObjectPrefab;
     
     public static List<Throwable> fruits;
-
+   
     protected virtual void Awake(){
         if (instance == null){
             instance = this;
@@ -26,7 +28,7 @@ public class Spawner : MonoBehaviour
 
     void Update()
     {   
-        if(GameManager.score < 0){
+        if(GameManager.score < 0 || GameManager.lives == 0){
             foreach(Throwable obj in fruits){
                 obj.gameObject.SetActive(false);
                 Destroy(obj.gameObject);
@@ -43,7 +45,7 @@ public class Spawner : MonoBehaviour
   
 
     public void SpawnFruit(){
-        float randNumX = UnityEngine.Random.Range(-10,11);
+        float randNumX = UnityEngine.Random.Range(-8,9);
         Instantiate(ObjectPrefab).transform.position = new Vector3(randNumX,-5f,0f);
     }
 

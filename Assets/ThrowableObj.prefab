@@ -122,7 +122,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spinSpeed: 360
   peach: {fileID: -1309725853, guid: e603326ddb6d63244be2d205ed3f0bc1, type: 3}
-  bomb: {fileID: 1987382165, guid: d60f65e3430187b44b0634f0c9055299, type: 3}
+  bomb: {fileID: 21300000, guid: a1048c011dc482e45810fad4efbf5441, type: 3}
   apple: {fileID: 62768417, guid: e603326ddb6d63244be2d205ed3f0bc1, type: 3}
   grape: {fileID: 1554901213, guid: e603326ddb6d63244be2d205ed3f0bc1, type: 3}
   banana: {fileID: -879936639, guid: e603326ddb6d63244be2d205ed3f0bc1, type: 3}

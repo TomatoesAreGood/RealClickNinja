@@ -1,30 +1,42 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEditor.UI;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    public static int lives;
+    
     public static int score;
 
+    public static float time;
+
     public IntToText scoreobj;
-        //timer
+
+    public IntToText livesobj;
+
+    public IntToText timesobj;
+
     public Spawner spawner;
 
 
-    // Start is called before the first frame update
     void Awake(){
+        lives = 3;
         score = 0;
        
     }
 
-    // Update is called once per frame
     void Update()
     {
-        scoreobj.UpdateText(score);
+        time += Time.deltaTime;
 
-        if (score < 0){
+        scoreobj.UpdateText(score);
+        livesobj.UpdateText(lives);
+        timesobj.UpdateText((int)time);
+
+        if (score < 0 || lives == 0){
             SceneManager.LoadScene("GameOver");
         }
     }

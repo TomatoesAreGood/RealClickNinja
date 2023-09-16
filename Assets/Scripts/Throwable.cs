@@ -92,6 +92,10 @@ public class Throwable : MonoBehaviour{
     private void Update(){
        Spin();
         if (hitGround()){
+            if (!isBomb) {
+                GameManager.lives--;
+            }
+
             Destroy(gameObject);
         }
     }
@@ -114,6 +118,7 @@ public class Throwable : MonoBehaviour{
         }else if(exludeRight){
             max = 0;
         }
+        
 
        int num = UnityEngine.Random.Range(min,max);
 
