@@ -880,7 +880,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DoPersist: 1
-  ObjectPrefab: {fileID: 6534986482733849907, guid: 3cfe1a393fd28b44a996e1297a191518, type: 3}
+  FruitPrefab: {fileID: 6534986482733849907, guid: 3cfe1a393fd28b44a996e1297a191518, type: 3}
+  BombPrefab: {fileID: 6534986482733849907, guid: 3e6ff421ada75d34488b98abdb86b483, type: 3}
+  peach: {fileID: -1309725853, guid: e603326ddb6d63244be2d205ed3f0bc1, type: 3}
+  apple: {fileID: 62768417, guid: e603326ddb6d63244be2d205ed3f0bc1, type: 3}
+  grape: {fileID: 1554901213, guid: e603326ddb6d63244be2d205ed3f0bc1, type: 3}
+  banana: {fileID: -879936639, guid: e603326ddb6d63244be2d205ed3f0bc1, type: 3}
+  strawberry: {fileID: -1260757649, guid: e603326ddb6d63244be2d205ed3f0bc1, type: 3}
+  kiwi: {fileID: -1873485664, guid: e603326ddb6d63244be2d205ed3f0bc1, type: 3}
+  tomato: {fileID: 523922682, guid: e603326ddb6d63244be2d205ed3f0bc1, type: 3}
 --- !u!4 &1395975478
 Transform:
   m_ObjectHideFlags: 0
