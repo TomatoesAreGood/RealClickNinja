@@ -49,10 +49,10 @@ public class Spawner : MonoBehaviour
             Destroy(gameObject);
         }   
 
-        if (fruits.Count < 5){
+        if (fruits.Count < 2){
             SpawnFruit();
         }
-         if (bombs.Count < 0){
+         if (bombs.Count < 1){
             SpawnBomb();
         } 
     }

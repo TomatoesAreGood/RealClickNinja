@@ -25,7 +25,5 @@ public class Bomb : ThrowableObj{
         Spawner.allObj.Remove(this);
         Spawner.bombs.Remove(this);
     }
-    protected override void OnMouseDown(){
-        GameManager.score = -10000;
-    }
+  
 }

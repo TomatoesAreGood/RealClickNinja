@@ -29,30 +29,39 @@ public class Blade : MonoBehaviour
 
     void Update(){
 
+        // print(currentBladeTrail);
         if (Input.GetMouseButtonDown(0)){
             isCutting = true;
             currentBladeTrail = Instantiate(bladeTrail, transform);
+            // var trail = currentBladeTrail.GetComponent<LineRenderer>();
+            
         }else if(Input.GetMouseButtonUp(0)){
-            isCutting = false;
-            circleCollider.enabled = false;
             currentBladeTrail.transform.SetParent(null);
-            Destroy(currentBladeTrail, 2f);
+            Destroy(currentBladeTrail.gameObject);
+
+            isCutting = false;
+            // circleCollider.enabled = false;
         }
 
 
-        if (isCutting){
+
+        
+    }
+
+    private void FixedUpdate(){
+     if (isCutting){
             rb.position = cam.ScreenToWorldPoint(Input.mousePosition);
-            transform.position = cam.ScreenToWorldPoint(Input.mousePosition);
+            // transform.position = cam.ScreenToWorldPoint(Input.mousePosition);
 
-            currentPos = transform.position;        
-            if (CalculateVelocity() > 13){
-                circleCollider.enabled = true;
-            }else{
-                circleCollider.enabled = false;
-            }
-            prevPos = transform.position;
+            // currentPos = transform.position;        
+            // if (CalculateVelocity() > 13){
+            //     circleCollider.enabled = true;
+            // }else{
+            //     circleCollider.enabled = false;
+            // }
+            // prevPos = transform.position;
+           
         }
-
 
 
     }

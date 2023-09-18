@@ -353,7 +353,7 @@ GameObject:
   - component: {fileID: 862964916}
   - component: {fileID: 862964915}
   m_Layer: 5
-  m_Name: Image
+  m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -802,6 +802,91 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textValue: {fileID: 1251165199}
+--- !u!1 &1254581870
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1254581874}
+  - component: {fileID: 1254581871}
+  - component: {fileID: 1254581875}
+  - component: {fileID: 1254581876}
+  m_Layer: 0
+  m_Name: Blade
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!50 &1254581871
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1254581870}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 1
+  m_Constraints: 0
+--- !u!4 &1254581874
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1254581870}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.35333267, y: 0.21056746, z: 30}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!58 &1254581875
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1254581870}
+  m_Enabled: 0
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.1
+--- !u!114 &1254581876
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1254581870}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: da656234a0a726144a4264c01b68a5b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isCutting: 0
+  bladeTrail: {fileID: 1456952691000065429, guid: 1bd1930d170cb1745bcd9d2ea2c9522e, type: 3}
 --- !u!1 &1300440194
 GameObject:
   m_ObjectHideFlags: 0
@@ -831,10 +916,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb4849de5034979448d1d0ef8e7563ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cutting: 0
+  clicking: 0
   scoreobj: {fileID: 1251165201}
   livesobj: {fileID: 585238307}
   timesobj: {fileID: 1015516117}
-  spawner: {fileID: 1395975477}
 --- !u!4 &1300440196
 Transform:
   m_ObjectHideFlags: 0

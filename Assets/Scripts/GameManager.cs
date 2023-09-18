@@ -49,6 +49,9 @@ public class GameManager : MonoBehaviour
            } 
         }
         foreach(ThrowableObj obj in destroyedList){
+            if (obj.GetType() == typeof(Bomb)){
+                score = -100000;
+            }
             Destroy(obj.gameObject);
         }
 
