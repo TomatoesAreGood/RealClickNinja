@@ -8,10 +8,10 @@ using UnityEngine.SceneManagement;
 
 public class Spawner : MonoBehaviour 
 {
-    public Boolean iscolliding;
+    public Boolean isColliding;
     public static Spawner instance;
-    public GameObject FruitPrefab;
-    public GameObject BombPrefab;
+    public GameObject fruitPrefab;
+    public GameObject bombPrefab;
     public static float spinSpeed = 360;
     private float thrust = 500f;
     public Sprite peach;
@@ -21,8 +21,7 @@ public class Spawner : MonoBehaviour
     public Sprite strawberry;
     public Sprite kiwi;
     public Sprite tomato;
-    public Sprite dragonfruit;
-
+    public Sprite dragonFruit;
     public static List<ThrowableObj> allObj;
     public static List<ThrowableObj> fruits;
     public static List<ThrowableObj> bombs;
@@ -35,7 +34,7 @@ public class Spawner : MonoBehaviour
     }
 
     void Update(){   
-        if(!iscolliding){
+        if(!isColliding){
             for (int i = 0; i < allObj.Count; i++){
                 allObj[i].collider.isTrigger = true;
             }
@@ -50,22 +49,22 @@ public class Spawner : MonoBehaviour
             Destroy(gameObject);
         }   
 
-        if (fruits.Count < 1){
+        if (fruits.Count < 5){
             SpawnFruit();
         }
-         if (bombs.Count < 1){
+         if (bombs.Count < 0){
             SpawnBomb();
         } 
     }
 
     public void SpawnBomb(){
-        GameObject obj = Instantiate(BombPrefab);
+        GameObject obj = Instantiate(bombPrefab);
         Rigidbody2D rb = obj.GetComponent<Rigidbody2D>();
         Toss(obj, rb);
     }
     
     public void SpawnFruit(){
-        GameObject obj = Instantiate(FruitPrefab);
+        GameObject obj = Instantiate(fruitPrefab);
 
         SpriteRenderer sr = obj.GetComponent<SpriteRenderer>();
         Rigidbody2D rb = obj.GetComponent<Rigidbody2D>();
@@ -87,7 +86,7 @@ public class Spawner : MonoBehaviour
         }else if (randint == 6){
             sr.sprite = tomato;
         }else if (randint == 7){
-            sr.sprite = dragonfruit;
+            sr.sprite = dragonFruit;
         }
         Toss(obj, rb);
     }
@@ -102,10 +101,10 @@ public class Spawner : MonoBehaviour
         int max = 6;
         int min = -5;
 
-        if (obj.transform.position.x <= -6){
+        if (obj.transform.position.x <= -4){
             exludeLeft = true;
         }
-        if (obj.transform.position.x >= 6){
+        if (obj.transform.position.x >= 4){
             exludeRight = true;
         }
 
@@ -132,5 +131,10 @@ public class Spawner : MonoBehaviour
         }else{
             rb.AddForce(Vector2.up*thrust*UnityEngine.Random.Range(0.75f, 1.25f));
         }
-    }   
+    }
+
+  
+    
+
+   
 }

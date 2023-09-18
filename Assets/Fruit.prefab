@@ -155,3 +155,4 @@ MonoBehaviour:
   rb: {fileID: 0}
   spriteRenderer: {fileID: 0}
   collider: {fileID: 0}
+  xMarkPrefab: {fileID: 4197457154962747367, guid: d6f3c8d68ad00a949bcc9ed637f77c2d, type: 3}

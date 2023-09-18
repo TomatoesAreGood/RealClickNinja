@@ -42,7 +42,7 @@ public class ThrowableObj : MonoBehaviour{
     }
     
     protected Boolean hitGround(){
-        return transform.position.y < -6.5;
+        return transform.position.y < -5.5;
     }
     
     protected void Spin(){

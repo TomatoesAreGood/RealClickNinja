@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
@@ -7,6 +8,10 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+    public Boolean cutting;
+
+    public Boolean clicking;
+
     public static int lives;
     
     public static int score;
@@ -19,16 +24,12 @@ public class GameManager : MonoBehaviour
 
     public IntToText timesobj;
 
-    public Spawner spawner;
-
-
-    void Awake(){
-        lives = 3;
+    private void Awake(){
+        lives = 100;
         score = 0;
-       
     }
 
-    void Update()
+    private void Update()
     {
         time += Time.deltaTime;
 
@@ -39,5 +40,22 @@ public class GameManager : MonoBehaviour
         if (score < 0 || lives == 0){
             SceneManager.LoadScene("GameOver");
         }
+
+        List<ThrowableObj> destroyedList = new List<ThrowableObj>();
+
+        foreach(ThrowableObj obj in Spawner.allObj){
+           if (Blade.circleCollider.IsTouching(obj.collider)){
+                destroyedList.Add(obj);
+           } 
+        }
+        foreach(ThrowableObj obj in destroyedList){
+            Destroy(obj.gameObject);
+        }
+
+
+
     }
+
+
+
 }

@@ -13,6 +13,7 @@ using UnityEngine;
 using UnityEngine.SocialPlatforms.Impl;
 
 public class Fruit : ThrowableObj{
+    public GameObject xMarkPrefab;
 
     protected override void Start(){
         int randnum = UnityEngine.Random.Range(0, 361);
@@ -26,15 +27,14 @@ public class Fruit : ThrowableObj{
         base.Update();
         if (hitGround()){
             GameManager.lives--;
+            Instantiate(xMarkPrefab).transform.position = new Vector2((float)gameObject.transform.position.x, -4.4f);
             Destroy(gameObject);
         }
     }
 
     protected override void OnDisable(){
         GameManager.score++;
-
         Spawner.allObj.Remove(this);
         Spawner.fruits.Remove(this);
     }
-
 }
