@@ -43,7 +43,7 @@ public class GameManager : MonoBehaviour
 
         List<ThrowableObj> destroyedList = new List<ThrowableObj>();
 
-        foreach(ThrowableObj obj in Spawner.allObj){
+        foreach(ThrowableObj obj in Spawner.bombs){
            if (Blade.circleCollider.IsTouching(obj.collider)){
                 destroyedList.Add(obj);
            } 
@@ -52,13 +52,12 @@ public class GameManager : MonoBehaviour
             if (obj.GetType() == typeof(Bomb)){
                 score = -100000;
             }
+            // if(obj.GetType() == typeof(Fruit)){
+            //     score++;
+            // }
             Destroy(obj.gameObject);
         }
 
-
-
     }
-
-
 
 }

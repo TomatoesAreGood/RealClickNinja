@@ -16,10 +16,7 @@ public class Fruit : ThrowableObj{
     public GameObject xMarkPrefab;
 
     protected override void Start(){
-        int randnum = UnityEngine.Random.Range(0, 361);
-        rb.rotation = (float)randnum;
-
-        Spawner.allObj.Add(this);
+        base.Start();
         Spawner.fruits.Add(this);
     }
 
@@ -32,9 +29,13 @@ public class Fruit : ThrowableObj{
         }
     }
 
-    protected override void OnDisable(){
+    protected override void OnMouseDown(){
+        base.OnMouseDown();
         GameManager.score++;
-        Spawner.allObj.Remove(this);
+    }
+
+    protected override void OnDisable(){
+        base.OnDisable();
         Spawner.fruits.Remove(this);
     }
 }

@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 6534986482733849916}
   - component: {fileID: 6534986482733849906}
   - component: {fileID: 1689256687180310188}
-  - component: {fileID: 4017419214764381570}
+  - component: {fileID: 1449270149529546184}
   m_Layer: 0
-  m_Name: Fruit
+  m_Name: Bomb
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -77,7 +77,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 717855850, guid: a72289acd8f0bf84aacb33d8a244a2d3, type: 3}
+  m_Sprite: {fileID: 21300000, guid: a1048c011dc482e45810fad4efbf5441, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -134,13 +134,13 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.15499999
---- !u!114 &4017419214764381570
+--- !u!114 &1449270149529546184
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -149,10 +149,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 6534986482733849907}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ef096bebeacf7a44391a8e797dade7cd, type: 3}
+  m_Script: {fileID: 11500000, guid: ec80acf8bcc2b98439c1c0dae23bd51f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 0}
   spriteRenderer: {fileID: 0}
   collider: {fileID: 0}
-  xMarkPrefab: {fileID: 4197457154962747367, guid: d6f3c8d68ad00a949bcc9ed637f77c2d, type: 3}

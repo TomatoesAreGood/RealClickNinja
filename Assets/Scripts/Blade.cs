@@ -15,7 +15,7 @@ public class Blade : MonoBehaviour
     private GameObject currentBladeTrail;
     private Vector2 prevPos;
     private Vector2 currentPos;
-
+    
     private double CalculateVelocity(){
         return (currentPos-prevPos).magnitude / Time.deltaTime;
     }
@@ -24,46 +24,36 @@ public class Blade : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         cam = Camera.main;
         circleCollider = GetComponent<CircleCollider2D>();
+        currentBladeTrail = null;
     }
 
 
     void Update(){
 
-        // print(currentBladeTrail);
         if (Input.GetMouseButtonDown(0)){
             isCutting = true;
             currentBladeTrail = Instantiate(bladeTrail, transform);
-            // var trail = currentBladeTrail.GetComponent<LineRenderer>();
-            
         }else if(Input.GetMouseButtonUp(0)){
-            currentBladeTrail.transform.SetParent(null);
-            Destroy(currentBladeTrail.gameObject);
-
             isCutting = false;
-            // circleCollider.enabled = false;
+            Destroy(currentBladeTrail.gameObject, 2f);
+            currentBladeTrail.transform.SetParent(null);
+        }
+        if (isCutting){
+            rb.position = cam.ScreenToWorldPoint(Input.mousePosition);
+            transform.position = cam.ScreenToWorldPoint(Input.mousePosition);
+            currentPos = transform.position;        
+            if (CalculateVelocity() > 13){
+                circleCollider.enabled = true;
+            }else{
+                circleCollider.enabled = false;
+            }
+            prevPos = transform.position;
+           
         }
 
 
 
         
-    }
-
-    private void FixedUpdate(){
-     if (isCutting){
-            rb.position = cam.ScreenToWorldPoint(Input.mousePosition);
-            // transform.position = cam.ScreenToWorldPoint(Input.mousePosition);
-
-            // currentPos = transform.position;        
-            // if (CalculateVelocity() > 13){
-            //     circleCollider.enabled = true;
-            // }else{
-            //     circleCollider.enabled = false;
-            // }
-            // prevPos = transform.position;
-           
-        }
-
-
     }
 
 }

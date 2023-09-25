@@ -966,7 +966,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isColliding: 0
-  fruitPrefab: {fileID: 6534986482733849907, guid: 3cfe1a393fd28b44a996e1297a191518, type: 3}
+  fruitPrefab: {fileID: 6534986482733849907, guid: 79ca72688259703448e33e8ae07da150, type: 3}
   bombPrefab: {fileID: 6534986482733849907, guid: 3e6ff421ada75d34488b98abdb86b483, type: 3}
   peach: {fileID: -1309725853, guid: e603326ddb6d63244be2d205ed3f0bc1, type: 3}
   apple: {fileID: 62768417, guid: e603326ddb6d63244be2d205ed3f0bc1, type: 3}

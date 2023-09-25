@@ -14,15 +14,12 @@ using UnityEngine.SocialPlatforms.Impl;
 
 public class Bomb : ThrowableObj{
     protected override void Start(){
-        int randnum = UnityEngine.Random.Range(0, 361);
-        rb.rotation = (float)randnum;
-
-        Spawner.allObj.Add(this);
+        base.Start();
         Spawner.bombs.Add(this);
     }
 
     protected override void OnDisable(){
-        Spawner.allObj.Remove(this);
+        base.OnDisable();
         Spawner.bombs.Remove(this);
     }
   

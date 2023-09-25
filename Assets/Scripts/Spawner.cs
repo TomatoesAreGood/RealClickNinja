@@ -69,25 +69,25 @@ public class Spawner : MonoBehaviour
         SpriteRenderer sr = obj.GetComponent<SpriteRenderer>();
         Rigidbody2D rb = obj.GetComponent<Rigidbody2D>();
 
-        int randint = UnityEngine.Random.Range(0,8);
+        // int randint = UnityEngine.Random.Range(0,8);
 
-        if (randint == 0){
-            sr.sprite = peach;
-        }else if (randint == 1){
-            sr.sprite = apple;
-        }else if (randint == 2){
-            sr.sprite = grape;
-        }else if (randint == 3){
-            sr.sprite = banana;
-        }else if (randint == 4){
-            sr.sprite = strawberry;
-        }else if (randint == 5){
-            sr.sprite = kiwi;
-        }else if (randint == 6){
-            sr.sprite = tomato;
-        }else if (randint == 7){
-            sr.sprite = dragonFruit;
-        }
+        // if (randint == 0){
+        //     sr.sprite = peach;
+        // }else if (randint == 1){
+        //     sr.sprite = apple;
+        // }else if (randint == 2){
+        //     sr.sprite = grape;
+        // }else if (randint == 3){
+        //     sr.sprite = banana;
+        // }else if (randint == 4){
+        //     sr.sprite = strawberry;
+        // }else if (randint == 5){
+        //     sr.sprite = kiwi;
+        // }else if (randint == 6){
+        //     sr.sprite = tomato;
+        // }else if (randint == 7){
+        //     sr.sprite = dragonFruit;
+        // }
         Toss(obj, rb);
     }
 
@@ -131,6 +131,8 @@ public class Spawner : MonoBehaviour
         }else{
             rb.AddForce(Vector2.up*thrust*UnityEngine.Random.Range(0.75f, 1.25f));
         }
+        int randnum = UnityEngine.Random.Range(100,360);
+        rb.angularVelocity = randnum;
     }
 
   

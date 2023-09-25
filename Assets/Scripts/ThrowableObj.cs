@@ -15,10 +15,10 @@ using UnityEngine.Rendering;
 using UnityEngine.UIElements;
 
 public class ThrowableObj : MonoBehaviour{
-    public Rigidbody2D rb;
-    public SpriteRenderer spriteRenderer;
-    public CircleCollider2D collider;
- 
+    [HideInInspector] public Rigidbody2D rb;
+    [HideInInspector] public SpriteRenderer spriteRenderer;
+    [HideInInspector] public new CircleCollider2D collider;
+
 
     protected void Awake(){
         rb = GetComponent<Rigidbody2D>();
@@ -45,13 +45,7 @@ public class ThrowableObj : MonoBehaviour{
         return transform.position.y < -5.5;
     }
     
-    protected void Spin(){
-        float angle = this.transform.localRotation.eulerAngles.z;
-        this.transform.localRotation = Quaternion.Euler(0f, 0f, angle + Spawner.spinSpeed* Time.deltaTime);
-    }
-
     protected virtual void Update(){
-       Spin();
         if (hitGround()){
             Destroy(gameObject);
         }
