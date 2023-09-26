@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class CuttableFruit : ThrowableObj
@@ -9,20 +10,31 @@ public class CuttableFruit : ThrowableObj
     [SerializeField] BoxCollider2D left;
     [SerializeField] BoxCollider2D top;
     [SerializeField] BoxCollider2D bot;
+    [SerializeField] GameObject horizontalParticle;
+    [SerializeField] GameObject verticalParticle;
+
 
     protected override void Start(){
         base.Start();
-        Spawner.fruits.Add(this);
+        GameManager.fruits.Add(this);
     }
 
     protected override void Update(){
         base.Update();
 
-        if(Blade.circleCollider.IsTouching(left) || Blade.circleCollider.IsTouching(right)){
+        if(Blade.rb.IsTouching(left) || Blade.rb.IsTouching(right)){
             CutHorizontally();
+            horizontalParticle.SetActive(true);
+            horizontalParticle.transform.SetParent(null);
+            Destroy(horizontalParticle, 2f);
         }
-        if(Blade.circleCollider.IsTouching(top) || Blade.circleCollider.IsTouching(bot)){
+
+        if(Blade.rb.IsTouching(top) || Blade.rb.IsTouching(bot)){
             CutVertically();
+            verticalParticle.SetActive(true);
+            verticalParticle.transform.SetParent(null);
+            Destroy(verticalParticle, 2f);
+
         }
         
         if (hitGround()){
@@ -89,6 +101,8 @@ public class CuttableFruit : ThrowableObj
 
     protected override void OnDisable(){
         base.OnDisable();
-        Spawner.fruits.Remove(this);
+        GameManager.fruits.Remove(this);
     }
+
+
 }

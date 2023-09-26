@@ -7,8 +7,10 @@ using UnityEngine.U2D.IK;
 
 public class Blade : MonoBehaviour
 {
+    public static new  Transform transform;
+
     public static CircleCollider2D circleCollider;
-    private Rigidbody2D rb;
+    public static Rigidbody2D rb;
     private Camera cam;
     public Boolean isCutting;
     public GameObject bladeTrail;
@@ -20,15 +22,16 @@ public class Blade : MonoBehaviour
         return (currentPos-prevPos).magnitude / Time.deltaTime;
     }
 
-    void Start(){
+    private void Start(){
         rb = GetComponent<Rigidbody2D>();
         cam = Camera.main;
         circleCollider = GetComponent<CircleCollider2D>();
+        transform = GetComponent<Transform>();
         currentBladeTrail = null;
     }
 
 
-    void Update(){
+    private void Update(){
 
         if (Input.GetMouseButtonDown(0)){
             isCutting = true;

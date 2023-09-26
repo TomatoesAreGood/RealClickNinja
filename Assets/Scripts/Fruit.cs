@@ -17,7 +17,7 @@ public class Fruit : ThrowableObj{
 
     protected override void Start(){
         base.Start();
-        Spawner.fruits.Add(this);
+        GameManager.fruits.Add(this);
     }
 
     protected override void Update(){
@@ -36,6 +36,6 @@ public class Fruit : ThrowableObj{
 
     protected override void OnDisable(){
         base.OnDisable();
-        Spawner.fruits.Remove(this);
+        GameManager.fruits.Remove(this);
     }
 }

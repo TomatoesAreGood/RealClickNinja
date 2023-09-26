@@ -15,12 +15,12 @@ using UnityEngine.SocialPlatforms.Impl;
 public class Bomb : ThrowableObj{
     protected override void Start(){
         base.Start();
-        Spawner.bombs.Add(this);
+        GameManager.bombs.Add(this);
     }
 
     protected override void OnDisable(){
         base.OnDisable();
-        Spawner.bombs.Remove(this);
+        GameManager.bombs.Remove(this);
     }
   
 }

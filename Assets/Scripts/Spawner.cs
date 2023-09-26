@@ -9,10 +9,8 @@ using UnityEngine.SceneManagement;
 public class Spawner : MonoBehaviour 
 {
     public Boolean isColliding;
-    public static Spawner instance;
     public GameObject fruitPrefab;
     public GameObject bombPrefab;
-    public static float spinSpeed = 360;
     private float thrust = 500f;
     public Sprite peach;
     public Sprite apple;
@@ -22,25 +20,15 @@ public class Spawner : MonoBehaviour
     public Sprite kiwi;
     public Sprite tomato;
     public Sprite dragonFruit;
-    public static List<ThrowableObj> allObj;
-    public static List<ThrowableObj> fruits;
-    public static List<ThrowableObj> bombs;
 
-   
-    protected virtual void Awake(){
-        fruits = new List<ThrowableObj>();
-        allObj = new List<ThrowableObj>();
-        bombs = new List<ThrowableObj>();
-    }
-
-    void Update(){   
+    private void Update(){   
         if(!isColliding){
-            for (int i = 0; i < allObj.Count; i++){
-                allObj[i].collider.isTrigger = true;
+            for (int i = 0; i < GameManager.allObj.Count; i++){
+                GameManager.allObj[i].collider.isTrigger = true;
             }
         }
 
-        if(GameManager.score < 0 || GameManager.lives == 0 || SceneManager.GetActiveScene().name == "GameOver"){
+        if(GameManager.lives == 0 || SceneManager.GetActiveScene().name == "GameOver"){
             // foreach(ThrowableObj obj in allObj){
             //     obj.gameObject.SetActive(false);
             //     Destroy(obj.gameObject);
@@ -49,21 +37,44 @@ public class Spawner : MonoBehaviour
             Destroy(gameObject);
         }   
 
-        if (fruits.Count < 2){
+        if (GameManager.fruits.Count < 2){
             SpawnFruit();
         }
-         if (bombs.Count < 1){
+         if (GameManager.bombs.Count < 0){
             SpawnBomb();
         } 
     }
 
-    public void SpawnBomb(){
+    private void SpawnFruitWave(){
+        
+        int randNum = UnityEngine.Random.Range(3,6);
+        int randThrust = UnityEngine.Random.Range(400, 600);
+
+        for(int i = 0; i < randNum; i++){
+            GameObject obj = Instantiate(fruitPrefab);
+
+            SpriteRenderer sr = obj.GetComponent<SpriteRenderer>();
+            Rigidbody2D rb = obj.GetComponent<Rigidbody2D>();
+
+            float randNumX = UnityEngine.Random.Range(-8f,9f);    
+            obj.transform.position = new Vector3(randNumX,-5f,0f);
+
+            rb.AddForce(Vector2.up*randThrust);
+            int randnum = UnityEngine.Random.Range(100,360);
+            rb.angularVelocity = randnum;
+        }
+        
+
+    }
+
+
+    private void SpawnBomb(){
         GameObject obj = Instantiate(bombPrefab);
         Rigidbody2D rb = obj.GetComponent<Rigidbody2D>();
         Toss(obj, rb);
     }
     
-    public void SpawnFruit(){
+    private void SpawnFruit(){
         GameObject obj = Instantiate(fruitPrefab);
 
         SpriteRenderer sr = obj.GetComponent<SpriteRenderer>();
@@ -91,8 +102,7 @@ public class Spawner : MonoBehaviour
         Toss(obj, rb);
     }
 
-
-    public void Toss(GameObject obj, Rigidbody2D rb){
+    private void Toss(GameObject obj, Rigidbody2D rb){
         float randNumX = UnityEngine.Random.Range(-8f,9f);    
         obj.transform.position = new Vector3(randNumX,-5f,0f);
 

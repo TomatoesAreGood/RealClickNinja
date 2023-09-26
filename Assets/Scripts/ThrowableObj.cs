@@ -30,11 +30,11 @@ public class ThrowableObj : MonoBehaviour{
         int randnum = UnityEngine.Random.Range(0, 361);
         rb.rotation = (float)randnum;
 
-        Spawner.allObj.Add(this);
+        GameManager.allObj.Add(this);
     }
 
     protected virtual void OnDisable(){
-        Spawner.allObj.Remove(this);
+        GameManager.allObj.Remove(this);
     }
 
     protected virtual void OnMouseDown(){
